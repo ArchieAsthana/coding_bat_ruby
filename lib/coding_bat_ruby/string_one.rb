@@ -12,7 +12,7 @@ module CodingBatRuby
     # helloName("Alice") -> "Hello Alice!"
     # helloName("X") -> "Hello X!"
     def hello_name(name)
-      name
+      "Hello #{name}!"
     end
   end
 end
