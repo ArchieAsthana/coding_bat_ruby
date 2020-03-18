@@ -48,4 +48,17 @@ RSpec.describe CodingBatRuby::StringOne do
     expect(subject.extra_front('Candy')).to eq 'CaCaCa'
     expect(subject.extra_front('Code')).to eq 'CoCoCo'
   end
+
+  it 'validate front_again' do
+    expect(subject.front_again('edited')).to be true
+    expect(subject.front_again('edit')).to be false
+    expect(subject.front_again('ed')).to be true
+    expect(subject.front_again('jj')).to be true
+    expect(subject.front_again('jjj')).to be true
+    expect(subject.front_again('jjjk')).to be false
+    expect(subject.front_again('x')).to be false
+    expect(subject.front_again('')).to be false
+    expect(subject.front_again('java')).to be false
+    expect(subject.front_again('javaja')).to be true
+  end
 end

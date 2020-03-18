@@ -47,7 +47,7 @@ module CodingBatRuby
     # con_cat("dog", "cat") -> "dogcat"
     # con_cat("abc", "") -> "abc"
     #
-    # Returns a string
+    # Returns a String
     def con_cat(value_a, value_b)
       return value_a + value_b if value_a.empty? || value_b.empty?
       return value_a[0...-1] + value_b if value_a[-1] == value_b[0]
@@ -64,11 +64,27 @@ module CodingBatRuby
     # extra_front("Hello") -> "HeHeHe"
     # extra_front("ab") -> "ababab"
     # extra_front("H") -> "HHH"
+    #
+    # Returns a String
     def extra_front(str)
       return str if str.empty?
 
       new_str = str.length < 2 ? str : str[0..1]
       new_str * 3
+    end
+
+    # Given a string, return true if the first 2 chars in the string also
+    # appear at the end of the string, such as with "edited".
+    #
+    # Examples
+    #
+    # frontAgain("edited") -> true
+    # frontAgain("edit") -> false
+    # frontAgain("ed") -> true
+    #
+    # Returns a Boolean
+    def front_again(str)
+      str[0..1] == str[-2..]
     end
   end
 end
