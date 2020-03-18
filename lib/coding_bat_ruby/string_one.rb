@@ -23,6 +23,7 @@ module CodingBatRuby
     # Otherwise, return the original string unchanged.
     #
     # Examples
+    #
     # without2("HelloHe") -> 'lloHe'
     # without2("HelloHi") -> 'HelloHi'
     # without2("Hi") -> ''
@@ -34,6 +35,24 @@ module CodingBatRuby
       return str[2..] if str[0...2].eql? str[-2..]
 
       str
+    end
+
+    # Given two strings, append them together (known as "concatenation") and
+    # return the result. However, if the concatenation creates a double-char,
+    # then omit one of the chars, so "abc" and "cat" yields "abcat".
+    #
+    # Examples
+    #
+    # con_cat("abc", "cat") -> "abcat"
+    # con_cat("dog", "cat") -> "dogcat"
+    # con_cat("abc", "") -> "abc
+    #
+    # Returns a string
+    def con_cat(value_a, value_b)
+      return value_a + value_b if value_a.empty? || value_b.empty?
+      return value_a[0...-1] + value_b if value_a[-1] == value_b[0]
+
+      value_a + value_b
     end
   end
 end

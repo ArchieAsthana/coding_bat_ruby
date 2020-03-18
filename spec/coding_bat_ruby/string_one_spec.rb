@@ -2,7 +2,10 @@
 
 require 'coding_bat_ruby/string_one'
 
+# rubocop:disable Metrics/BlockLength
 RSpec.describe CodingBatRuby::StringOne do
+  # rubocop:enable Metrics/BlockLength
+
   it 'validates hello_name' do
     expect(subject.hello_name('Bob')).to eq 'Hello Bob!'
     expect(subject.hello_name('Alice')).to eq 'Hello Alice!'
@@ -26,5 +29,14 @@ RSpec.describe CodingBatRuby::StringOne do
     expect(subject.without_two('x')).to eq 'x'
     expect(subject.without_two('')).to eq ''
     expect(subject.without_two('Fruits')).to eq 'Fruits'
+  end
+
+  it 'validates con_cat' do
+    expect(subject.con_cat('abc', 'cat')).to eq 'abcat'
+    expect(subject.con_cat('dog', 'cat')).to eq 'dogcat'
+    expect(subject.con_cat('abc', '')).to eq 'abc'
+    expect(subject.con_cat('', 'cat')).to eq 'cat'
+    expect(subject.con_cat('pig', 'g')).to eq 'pig'
+    expect(subject.con_cat('pig', 'doggy')).to eq 'pigdoggy'
   end
 end
