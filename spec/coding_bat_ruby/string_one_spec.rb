@@ -15,4 +15,16 @@ RSpec.describe CodingBatRuby::StringOne do
     expect(subject.hello_name('xyz!')).to eq 'Hello xyz!!'
     expect(subject.hello_name('Hello')).to eq 'Hello Hello!'
   end
+
+  it 'validates without_two' do
+    expect(subject.without_two('HelloHe')).to eq 'lloHe'
+    expect(subject.without_two('HelloHi')).to eq 'HelloHi'
+    expect(subject.without_two('Hi')).to eq ''
+    expect(subject.without_two('Chocolate')).to eq 'Chocolate'
+    expect(subject.without_two('xxx')).to eq 'x'
+    expect(subject.without_two('xx')).to eq ''
+    expect(subject.without_two('x')).to eq 'x'
+    expect(subject.without_two('')).to eq ''
+    expect(subject.without_two('Fruits')).to eq 'Fruits'
+  end
 end
