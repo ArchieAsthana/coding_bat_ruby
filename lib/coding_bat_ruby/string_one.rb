@@ -86,5 +86,21 @@ module CodingBatRuby
     def front_again(str)
       str[0..1] == str[-2..]
     end
+
+    # Given a string of even length, return a string made of the middle two
+    # chars, so the string "string" yields "ri". The string length will be
+    # at least 2.
+    #
+    # Examples
+    #
+    # middleTwo("string") -> "ri"
+    # middleTwo("code") -> "od"
+    # middleTwo("Practice") -> "ct"
+    #
+    # Returns a String
+    def middle_two(str)
+      mid = str.length / 2
+      str[mid - 1...mid + 1]
+    end
   end
 end

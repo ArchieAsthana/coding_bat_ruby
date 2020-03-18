@@ -61,4 +61,12 @@ RSpec.describe CodingBatRuby::StringOne do
     expect(subject.front_again('java')).to be false
     expect(subject.front_again('javaja')).to be true
   end
+
+  it 'validates middle_two' do
+    expect(subject.middle_two('string')).to eq 'ri'
+    expect(subject.middle_two('code')).to eq 'od'
+    expect(subject.middle_two('Practice')).to eq 'ct'
+    expect(subject.middle_two('ab')).to eq 'ab'
+    expect(subject.middle_two('0123456789')).to eq '45'
+  end
 end
