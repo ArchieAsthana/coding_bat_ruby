@@ -45,7 +45,7 @@ module CodingBatRuby
     #
     # con_cat("abc", "cat") -> "abcat"
     # con_cat("dog", "cat") -> "dogcat"
-    # con_cat("abc", "") -> "abc
+    # con_cat("abc", "") -> "abc"
     #
     # Returns a string
     def con_cat(value_a, value_b)
@@ -53,6 +53,22 @@ module CodingBatRuby
       return value_a[0...-1] + value_b if value_a[-1] == value_b[0]
 
       value_a + value_b
+    end
+
+    # Given a string, return a new string made of 3 copies of the first 2 chars
+    # of the original string. The string may be any length. If there are fewer
+    # than 2 chars, use whatever is there.
+    #
+    # Examples
+    #
+    # extra_front("Hello") -> "HeHeHe"
+    # extra_front("ab") -> "ababab"
+    # extra_front("H") -> "HHH"
+    def extra_front(str)
+      return str if str.empty?
+
+      new_str = str.length < 2 ? str : str[0..1]
+      new_str * 3
     end
   end
 end

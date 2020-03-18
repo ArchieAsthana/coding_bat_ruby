@@ -39,4 +39,13 @@ RSpec.describe CodingBatRuby::StringOne do
     expect(subject.con_cat('pig', 'g')).to eq 'pig'
     expect(subject.con_cat('pig', 'doggy')).to eq 'pigdoggy'
   end
+
+  it 'validates extra_front' do
+    expect(subject.extra_front('Hello')).to eq 'HeHeHe'
+    expect(subject.extra_front('ab')).to eq 'ababab'
+    expect(subject.extra_front('H')).to eq 'HHH'
+    expect(subject.extra_front('')).to eq ''
+    expect(subject.extra_front('Candy')).to eq 'CaCaCa'
+    expect(subject.extra_front('Code')).to eq 'CoCoCo'
+  end
 end
