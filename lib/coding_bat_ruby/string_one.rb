@@ -93,9 +93,9 @@ module CodingBatRuby
     #
     # Examples
     #
-    # middleTwo("string") -> "ri"
-    # middleTwo("code") -> "od"
-    # middleTwo("Practice") -> "ct"
+    # middleTwo("string") -> 'ri'
+    # middleTwo("code") -> 'od'
+    # middleTwo("Practice") -> 'ct'
     #
     # Returns a String
     def middle_two(str)
