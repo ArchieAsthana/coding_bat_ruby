@@ -116,5 +116,19 @@ module CodingBatRuby
     def n_twice(str, value_n)
       str[0...value_n] + str[str.length - value_n..]
     end
+
+    # Given a string, return a version without the first and last char, so
+    # "Hello" yields "ell". The string length will be at least 2.
+    #
+    # Examples
+    #
+    # withoutEnd("Hello") -> 'ell'
+    # withoutEnd("java") -> 'av'
+    # withoutEnd("coding") -> 'odin'
+    #
+    # Returns a String
+    def without_end(str)
+      str[1...str.length - 1]
+    end
   end
 end

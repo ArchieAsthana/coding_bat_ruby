@@ -79,4 +79,15 @@ RSpec.describe CodingBatRuby::StringOne do
     expect(subject.n_twice('Code', 4)).to eq 'CodeCode'
     expect(subject.n_twice('Code', 2)).to eq 'Code'
   end
+
+  it 'validates without_end' do
+    expect(subject.without_end('Hello')).to eq 'ell'
+    expect(subject.without_end('java')).to eq 'av'
+    expect(subject.without_end('coding')).to eq 'odin'
+    expect(subject.without_end('code')).to eq 'od'
+    expect(subject.without_end('ab')).to eq ''
+    expect(subject.without_end('Chocolate!')).to eq 'hocolate'
+    expect(subject.without_end('Kitten')).to eq 'itte'
+    expect(subject.without_end('woohoo')).to eq 'ooho'
+  end
 end
