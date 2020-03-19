@@ -163,5 +163,23 @@ module CodingBatRuby
       str.start_with?('red') ? 'red' : str.start_with?('blue') ? 'blue' : ''
       # rubocop:enable Style/NestedTernaryOperator
     end
+
+    # Given a string, return true if 'bad' appears starting at index 0 or 1 in
+    # the string,such as with 'badxxx' or 'xbadxx' but not 'xxbadxx'.
+    # The string may be any length, including 0. Note: use .equals() to compare
+    # 2 strings.
+    #
+    # Examples
+    #
+    # has_bad?('badxx') -> true
+    # has_bad?('xbadxx') -> true
+    # has_bad?('xxbadxx') -> false
+    #
+    # Returns a Boolean
+    # rubocop:disable Naming/PredicateName
+    def has_bad?(str)
+      # rubocop:enable Naming/PredicateName
+      str[0...3].eql?('bad') || str[1...4].eql?('bad')
+    end
   end
 end

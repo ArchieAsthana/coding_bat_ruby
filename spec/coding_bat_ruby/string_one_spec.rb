@@ -118,4 +118,17 @@ RSpec.describe CodingBatRuby::StringOne do
     expect(subject.see_color_with_nested_ternary('')).to eq ''
     expect(subject.see_color_with_nested_ternary('xyzred')).to eq ''
   end
+
+  it 'validates has_bad?' do
+    expect(subject.has_bad?('badxx')).to be true
+    expect(subject.has_bad?('xbadxx')).to be true
+    expect(subject.has_bad?('xxbadxx')).to be false
+    expect(subject.has_bad?('code')).to be false
+    expect(subject.has_bad?('bad')).to be true
+    expect(subject.has_bad?('ba')).to be false
+    expect(subject.has_bad?('xba')).to be false
+    expect(subject.has_bad?('xbadx')).to be true
+    expect(subject.has_bad?('')).to be false
+    expect(subject.has_bad?('badyy')).to be true
+  end
 end
