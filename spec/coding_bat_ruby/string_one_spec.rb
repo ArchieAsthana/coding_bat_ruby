@@ -131,4 +131,14 @@ RSpec.describe CodingBatRuby::StringOne do
     expect(subject.has_bad?('')).to be false
     expect(subject.has_bad?('badyy')).to be true
   end
+
+  it 'validates make_tags' do
+    expect(subject.make_tags('i', 'Yay')).to eq '<i>Yay</i>'
+    expect(subject.make_tags('i', 'Hello')).to eq '<i>Hello</i>'
+    expect(subject.make_tags('cite', 'Yay')).to eq '<cite>Yay</cite>'
+    expect(subject.make_tags('address', 'here')).to eq '<address>here</address>'
+    expect(subject.make_tags('body', 'Heart')).to eq '<body>Heart</body>'
+    expect(subject.make_tags('i', 'i')).to eq '<i>i</i>'
+    expect(subject.make_tags('i', '')).to eq '<i></i>'
+  end
 end
