@@ -195,7 +195,25 @@ module CodingBatRuby
     #
     # Returns a String
     def make_tags(tag, word)
-      '<' + tag + '>' + word + '</' + tag + '>'
+      "<#{tag}>#{word}</#{tag}>"
+    end
+
+    # Given a string, if the first or last chars are 'x', return the string
+    # without Those 'x' chars, and otherwise return the string unchanged.
+    #
+    # Examples
+    #
+    # without_x('xHix') -> 'Hi'
+    # without_x('xHi') -> 'Hi'
+    # without_x('Hxix') -> 'Hxi'
+    #
+    # Returns a String
+    def without_x(str)
+      return str[1..-2] if str[0] == 'x' && str[-1] == 'x'
+      return str[1..] if str[0] == 'x'
+      return str[0..-2] if str[-1] == 'x'
+
+      str
     end
   end
 end

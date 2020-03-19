@@ -141,4 +141,19 @@ RSpec.describe CodingBatRuby::StringOne do
     expect(subject.make_tags('i', 'i')).to eq '<i>i</i>'
     expect(subject.make_tags('i', '')).to eq '<i></i>'
   end
+
+  it 'validate without_x' do
+    expect(subject.without_x('xHix')).to eq 'Hi'
+    expect(subject.without_x('xHi')).to eq 'Hi'
+    expect(subject.without_x('Hxix')).to eq 'Hxi'
+    expect(subject.without_x('Hi')).to eq 'Hi'
+    expect(subject.without_x('xxHi')).to eq 'xHi'
+    expect(subject.without_x('Hix')).to eq 'Hi'
+    expect(subject.without_x('xaxbx')).to eq 'axb'
+    expect(subject.without_x('xx')).to eq ''
+    expect(subject.without_x('x')).to eq ''
+    expect(subject.without_x('')).to eq ''
+    expect(subject.without_x('Hello')).to eq 'Hello'
+    expect(subject.without_x('Hexllo')).to eq 'Hexllo'
+  end
 end
