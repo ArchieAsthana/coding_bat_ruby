@@ -18,4 +18,16 @@ RSpec.describe CodingBatRuby::ArrayOne do
     expect(subject.first_last6([1, 2, 3, 4, 6])).to be true
     expect(subject.first_last6([1, 2, 3, 4])).to be false
   end
+
+  it 'validates has_23' do
+    expect(subject.has_23([2, 5])).to be true
+    expect(subject.has_23([4, 3])).to be true
+    expect(subject.has_23([4, 5])).to be false
+    expect(subject.has_23([2, 2])).to be true
+    expect(subject.has_23([3, 2])).to be true
+    expect(subject.has_23([3, 3])).to be true
+    expect(subject.has_23([7, 7])).to be false
+    expect(subject.has_23([3, 9])).to be true
+    expect(subject.has_23([9, 5])).to be false
+  end
 end
