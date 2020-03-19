@@ -90,4 +90,32 @@ RSpec.describe CodingBatRuby::StringOne do
     expect(subject.without_end('Kitten')).to eq 'itte'
     expect(subject.without_end('woohoo')).to eq 'ooho'
   end
+
+  it 'validates see_color' do
+    expect(subject.see_color('redxx')).to eq 'red'
+    expect(subject.see_color('xxred')).to eq ''
+    expect(subject.see_color('blueTimes')).to eq 'blue'
+    expect(subject.see_color('NoColor')).to eq ''
+    expect(subject.see_color('red')).to eq 'red'
+    expect(subject.see_color('re')).to eq ''
+    expect(subject.see_color('blu')).to eq ''
+    expect(subject.see_color('blue')).to eq 'blue'
+    expect(subject.see_color('a')).to eq ''
+    expect(subject.see_color('')).to eq ''
+    expect(subject.see_color('xyzred')).to eq ''
+  end
+
+  it 'validates see_color_with_nested_ternary' do
+    expect(subject.see_color_with_nested_ternary('redxx')).to eq 'red'
+    expect(subject.see_color_with_nested_ternary('xxred')).to eq ''
+    expect(subject.see_color_with_nested_ternary('blueTimes')).to eq 'blue'
+    expect(subject.see_color_with_nested_ternary('NoColor')).to eq ''
+    expect(subject.see_color_with_nested_ternary('red')).to eq 'red'
+    expect(subject.see_color_with_nested_ternary('re')).to eq ''
+    expect(subject.see_color_with_nested_ternary('blu')).to eq ''
+    expect(subject.see_color_with_nested_ternary('blue')).to eq 'blue'
+    expect(subject.see_color_with_nested_ternary('a')).to eq ''
+    expect(subject.see_color_with_nested_ternary('')).to eq ''
+    expect(subject.see_color_with_nested_ternary('xyzred')).to eq ''
+  end
 end

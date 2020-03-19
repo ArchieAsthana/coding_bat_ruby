@@ -3,14 +3,14 @@
 module CodingBatRuby
   # Basic String problems no loops
   class StringOne
-    # Given a string name, e.g. "Bob",
-    # return a greeting of the form "Hello Bob!".
+    # Given a string name, e.g. 'Bob',
+    # return a greeting of the form 'Hello Bob!'.
     #
     # Examples
     #
-    # helloName("Bob") -> "Hello Bob!"
-    # helloName("Alice") -> "Hello Alice!"
-    # helloName("X") -> "Hello X!"
+    # hello_name('Bob') -> 'Hello Bob!'
+    # hello_name('Alice') -> 'Hello Alice!'
+    # hello_name('X') -> 'Hello X!'
     #
     # Returns string
     def hello_name(name)
@@ -18,15 +18,15 @@ module CodingBatRuby
     end
 
     # Given a string, if a length 2 substring appears at both its beginning and
-    # end, return a string without the substring at the beginning, so "HelloHe"
-    # yields "lloHe". The substring may overlap with itself, so "Hi" yields "".
+    # end, return a string without the substring at the beginning, so 'HelloHe'
+    # yields 'lloHe'. The substring may overlap with itself, so 'Hi' yields '.
     # Otherwise, return the original string unchanged.
     #
     # Examples
     #
-    # without2("HelloHe") -> 'lloHe'
-    # without2("HelloHi") -> 'HelloHi'
-    # without2("Hi") -> ''
+    # without_two('HelloHe') -> 'lloHe'
+    # without_two('HelloHi') -> 'HelloHi'
+    # without_two('Hi') -> ''
     #
     # Returns String
     def without_two(str)
@@ -37,15 +37,15 @@ module CodingBatRuby
       str
     end
 
-    # Given two strings, append them together (known as "concatenation") and
+    # Given two strings, append them together (known as 'concatenation') and
     # return the result. However, if the concatenation creates a double-char,
-    # then omit one of the chars, so "abc" and "cat" yields "abcat".
+    # then omit one of the chars, so 'abc' and 'cat' yields 'abcat'.
     #
     # Examples
     #
-    # con_cat("abc", "cat") -> "abcat"
-    # con_cat("dog", "cat") -> "dogcat"
-    # con_cat("abc", "") -> "abc"
+    # con_cat('abc', 'cat') -> 'abcat'
+    # con_cat('dog', 'cat') -> 'dogcat'
+    # con_cat('abc', ') -> 'abc'
     #
     # Returns a String
     def con_cat(value_a, value_b)
@@ -61,9 +61,9 @@ module CodingBatRuby
     #
     # Examples
     #
-    # extra_front("Hello") -> "HeHeHe"
-    # extra_front("ab") -> "ababab"
-    # extra_front("H") -> "HHH"
+    # extra_front('Hello') -> 'HeHeHe'
+    # extra_front('ab') -> 'ababab'
+    # extra_front('H') -> 'HHH'
     #
     # Returns a String
     def extra_front(str)
@@ -74,13 +74,13 @@ module CodingBatRuby
     end
 
     # Given a string, return true if the first 2 chars in the string also
-    # appear at the end of the string, such as with "edited".
+    # appear at the end of the string, such as with 'edited'.
     #
     # Examples
     #
-    # frontAgain("edited") -> true
-    # frontAgain("edit") -> false
-    # frontAgain("ed") -> true
+    # front_again('edited') -> true
+    # front_again('edit') -> false
+    # front_again('ed') -> true
     #
     # Returns a Boolean
     def front_again(str)
@@ -88,14 +88,14 @@ module CodingBatRuby
     end
 
     # Given a string of even length, return a string made of the middle two
-    # chars, so the string "string" yields "ri". The string length will be
+    # chars, so the string 'string' yields 'ri'. The string length will be
     # at least 2.
     #
     # Examples
     #
-    # middleTwo("string") -> 'ri'
-    # middleTwo("code") -> 'od'
-    # middleTwo("Practice") -> 'ct'
+    # middle_two('string') -> 'ri'
+    # middle_two('code') -> 'od'
+    # middle_two('Practice') -> 'ct'
     #
     # Returns a String
     def middle_two(str)
@@ -108,9 +108,9 @@ module CodingBatRuby
     #
     # Examples
     #
-    # nTwice("Hello", 2) -> 'Helo'
-    # nTwice("Chocolate", 3) -> 'Choate'
-    # nTwice("Chocolate", 1) -> 'Ce'
+    # n_twice('Hello', 2) -> 'Helo'
+    # n_twice('Chocolate', 3) -> 'Choate'
+    # n_twice('Chocolate', 1) -> 'Ce'
     #
     # Returns a String and Integer
     def n_twice(str, value_n)
@@ -118,17 +118,50 @@ module CodingBatRuby
     end
 
     # Given a string, return a version without the first and last char, so
-    # "Hello" yields "ell". The string length will be at least 2.
+    # 'Hello' yields 'ell'. The string length will be at least 2.
     #
     # Examples
     #
-    # withoutEnd("Hello") -> 'ell'
-    # withoutEnd("java") -> 'av'
-    # withoutEnd("coding") -> 'odin'
+    # without_end('Hello') -> 'ell'
+    # without_end('java') -> 'av'
+    # without_end('coding') -> 'odin'
     #
     # Returns a String
     def without_end(str)
       str[1...str.length - 1]
+    end
+
+    # Given a string, if the string begins with 'red' or 'blue' return that
+    # color string, otherwise return the empty string.
+    #
+    # Examples
+    #
+    # see_color('redxx') -> 'red'
+    # see_color('xxred') -> ''
+    # see_color('blueTimes') -> 'blue'
+    #
+    # Returns a String
+    def see_color(str)
+      return 'red' if str.start_with?('red')
+      return 'blue' if str.start_with?('blue')
+
+      ''
+    end
+
+    # Given a string, if the string begins with 'red' or 'blue' return that
+    # color string, otherwise return the empty string.
+    #
+    # Examples
+    #
+    # see_color_with_nested_ternary('redxx') -> 'red'
+    # see_color_with_nested_ternary('xxred') -> ''
+    # see_color_with_nested_ternary('blueTimes') -> 'blue'
+    #
+    # Returns a String
+    def see_color_with_nested_ternary(str)
+      # rubocop:disable Style/NestedTernaryOperator
+      str.start_with?('red') ? 'red' : str.start_with?('blue') ? 'blue' : ''
+      # rubocop:enable Style/NestedTernaryOperator
     end
   end
 end
