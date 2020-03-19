@@ -142,7 +142,7 @@ RSpec.describe CodingBatRuby::StringOne do
     expect(subject.make_tags('i', '')).to eq '<i></i>'
   end
 
-  it 'validate without_x' do
+  it 'validates without_x' do
     expect(subject.without_x('xHix')).to eq 'Hi'
     expect(subject.without_x('xHi')).to eq 'Hi'
     expect(subject.without_x('Hxix')).to eq 'Hxi'
@@ -155,5 +155,27 @@ RSpec.describe CodingBatRuby::StringOne do
     expect(subject.without_x('')).to eq ''
     expect(subject.without_x('Hello')).to eq 'Hello'
     expect(subject.without_x('Hexllo')).to eq 'Hexllo'
+  end
+
+  it 'validates non_start' do
+    expect(subject.non_start('Hello', 'There')).to eq 'ellohere'
+    expect(subject.non_start('java', 'code')).to eq 'avaode'
+    expect(subject.non_start('shoti', 'java')).to eq 'hotiava'
+    expect(subject.non_start('ab', 'xy')).to eq 'by'
+    expect(subject.non_start('ab', 'x')).to eq 'b'
+    expect(subject.non_start('x', 'ac')).to eq 'c'
+    expect(subject.non_start('a', 'x')).to eq ''
+    expect(subject.non_start('kit', 'kat')).to eq 'itat'
+    expect(subject.non_start('mart', 'dart')).to eq 'artart'
+  end
+
+  it 'validates first_half' do
+    expect(subject.first_half('WooHoo')).to eq 'Woo'
+    expect(subject.first_half('HelloThere')).to eq 'Hello'
+    expect(subject.first_half('abcdef')).to eq 'abc'
+    expect(subject.first_half('ab')).to eq 'a'
+    expect(subject.first_half('')).to eq ''
+    expect(subject.first_half('0123456789')).to eq '01234'
+    expect(subject.first_half('kitten')).to eq 'kit'
   end
 end

@@ -215,5 +215,34 @@ module CodingBatRuby
 
       str
     end
+
+    # Given 2 strings, return their concatenation, except omit the first char
+    # of each. The strings will be at least length 1.
+    #
+    # Examples
+    #
+    # non_start('Hello', 'There') -> 'ellohere'
+    # non_start('java', 'code') -> 'avaode'
+    # non_start('shotl', 'java') -> 'hotlava'
+    #
+    # Returns a String
+    def non_start(value_a, value_b)
+      # value_a[1..-1] + value_b[1..-1]
+      value_a[1...value_a.length + 1] + value_b[1..-1]
+    end
+
+    # Given a string of even length, return the first half. So the string
+    # 'WooHoo' yields 'Woo'.
+    #
+    # Examples
+    #
+    # first_half('WooHoo') -> 'Woo'
+    # first_half('HelloThere') -> 'Hello'
+    # first_half('abcdef') -> 'abc'
+    #
+    # Returns a String
+    def first_half(str)
+      str[0...str.length / 2]
+    end
   end
 end
