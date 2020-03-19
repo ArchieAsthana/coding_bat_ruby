@@ -178,4 +178,19 @@ RSpec.describe CodingBatRuby::StringOne do
     expect(subject.first_half('0123456789')).to eq '01234'
     expect(subject.first_half('kitten')).to eq 'kit'
   end
+
+  it 'validates without_x2' do
+    expect(subject.without_x2('xHi')).to eq 'Hi'
+    expect(subject.without_x2('Hxi')).to eq 'Hi'
+    expect(subject.without_x2('Hi')).to eq 'Hi'
+    expect(subject.without_x2('xxHi')).to eq 'Hi'
+    expect(subject.without_x2('Hix')).to eq 'Hix'
+    expect(subject.without_x2('xaxb')).to eq 'axb'
+    expect(subject.without_x2('xx')).to eq ''
+    expect(subject.without_x2('x')).to eq ''
+    expect(subject.without_x2('')).to eq ''
+    expect(subject.without_x2('Hello')).to eq 'Hello'
+    expect(subject.without_x2('Hexllo')).to eq 'Hexllo'
+    expect(subject.without_x2('xHxllo')).to eq 'Hxllo'
+  end
 end

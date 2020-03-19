@@ -244,5 +244,24 @@ module CodingBatRuby
     def first_half(str)
       str[0...str.length / 2]
     end
+
+    # Given a string, if one or both of the first 2 chars is 'x', return the
+    # string without those 'x' chars, and otherwise return the string unchanged
+    # This is a little harder than it looks.
+    #
+    # Examples
+    #
+    # without_x2('xHi') -> 'Hi'
+    # without_x2('Hxi') -> 'Hi'
+    # without_x2('Hi') -> 'Hi'
+    #
+    # Returns a String
+    def without_x2(str)
+      return str[2..-1] if str[0] == 'x' && str[1] == 'x'
+      return str[1..-1] if str[0] == 'x'
+      return str[0] + str[2..-1] if str[1] == 'x'
+
+      str
+    end
   end
 end
