@@ -69,4 +69,14 @@ RSpec.describe CodingBatRuby::StringOne do
     expect(subject.middle_two('ab')).to eq 'ab'
     expect(subject.middle_two('0123456789')).to eq '45'
   end
+
+  it 'validates n_twice' do
+    expect(subject.n_twice('Hello', 2)).to eq 'Helo'
+    expect(subject.n_twice('Chocolate', 3)).to eq 'Choate'
+    expect(subject.n_twice('Chocolate', 1)).to eq 'Ce'
+    expect(subject.n_twice('Chocolate', 0)).to eq ''
+    expect(subject.n_twice('Hello', 4)).to eq 'Hellello'
+    expect(subject.n_twice('Code', 4)).to eq 'CodeCode'
+    expect(subject.n_twice('Code', 2)).to eq 'Code'
+  end
 end
