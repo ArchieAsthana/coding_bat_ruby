@@ -8,9 +8,9 @@ module CodingBatRuby
     #
     # Examples
     #
-    # firstLast6([1, 2, 6]) -> true
-    # firstLast6([6, 1, 2, 3]) -> true
-    # firstLast6([13, 6, 1, 2, 3]) -> false
+    # first_last6([1, 2, 6]) -> true
+    # first_last6([6, 1, 2, 3]) -> true
+    # first_last6([13, 6, 1, 2, 3]) -> false
     #
     # Returns an array of Integer
     def first_last6(nums)
@@ -28,6 +28,20 @@ module CodingBatRuby
     # Return a Boolean
     def has_23(nums)
       nums.include?(2) || nums.include?(3)
+    end
+
+    # Given an array of ints of odd length, look at the first, last, and middle
+    # values in the array and return the largest. The array length will be a
+    # least 1.
+    #
+    # Examples
+    # max_triple([1, 2, 3]) -> 3
+    # max_triple([1, 5, 3]) -> 5
+    # max_triple([5, 2, 3]) -> 5
+    #
+    # Returns a array of Integers
+    def max_triple(nums)
+      [nums[0], nums[nums.length / 2], nums[-1]].max
     end
   end
 end

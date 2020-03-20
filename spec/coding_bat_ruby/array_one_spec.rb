@@ -2,7 +2,9 @@
 
 require 'coding_bat_ruby/array_one'
 
+# rubocop:disable Metric/BlockLength
 RSpec.describe CodingBatRuby::ArrayOne do
+  # rubocop:enable Metric/BlockLength
   it 'validates first_last6' do
     expect(subject.first_last6([1, 2, 6])).to be true
     expect(subject.first_last6([6, 1, 2, 3])).to be true
@@ -29,5 +31,18 @@ RSpec.describe CodingBatRuby::ArrayOne do
     expect(subject.has_23([7, 7])).to be false
     expect(subject.has_23([3, 9])).to be true
     expect(subject.has_23([9, 5])).to be false
+  end
+
+  it 'validates max_triple' do
+    expect(subject.max_triple([1, 2, 3])).to be 3
+    expect(subject.max_triple([1, 5, 3])).to be 5
+    expect(subject.max_triple([5, 2, 3])).to be 5
+    expect(subject.max_triple([1, 2, 3, 1, 1])).to be 3
+    expect(subject.max_triple([1, 7, 3, 1, 5])).to be 5
+    expect(subject.max_triple([5, 1, 3, 7, 1])).to be 5
+    expect(subject.max_triple([5, 1, 7, 3, 7, 8, 1])).to be 5
+    expect(subject.max_triple([5, 1, 7, 9, 7, 8, 1])).to be 9
+    expect(subject.max_triple([5, 1, 7, 3, 7, 8, 9])).to be 9
+    expect(subject.max_triple([2, 2, 5, 1, 1])).to be 5
   end
 end
