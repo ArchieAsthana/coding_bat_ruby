@@ -68,11 +68,27 @@ module CodingBatRuby
     # unlucky_one([2, 1, 3, 4, 5]) -> true
     # unlucky_one([1, 1, 1]) -> false
     #
-    # Returns an Boolean
+    # Returns a Boolean
     def unlucky_one(nums)
       (nums[0] == 1 && nums[1] == 3) ||
       (nums[1] == 1 && nums[2] == 3) ||
       (nums[-2] == 1 && nums[-1] == 3)
+    end
+
+    # Given an int array, return a new array with double the length where
+    # its last element is the same as the original array, and all the other
+    # elements are 0. The original array will be length 1 or more.
+    # Note: by default, a new int array contains all 0's.
+    # 
+    # Examples
+    #
+    # make_last([4, 5, 6]) → [0, 0, 0, 0, 0, 6]
+    # make_last([1, 2]) → [0, 0, 0, 2]
+    # make_last([3]) → [0, 3]
+    #
+    # Returns an Array of integers
+    def make_last(nums)
+       
     end
   end
 end

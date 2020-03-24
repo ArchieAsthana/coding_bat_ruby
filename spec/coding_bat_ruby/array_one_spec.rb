@@ -79,4 +79,16 @@ RSpec.describe CodingBatRuby::ArrayOne do
     expect(subject.unlucky_one([2, 3, 1, 3])).to be true
     expect(subject.unlucky_one([1, 2, 3, 4, 1, 3])).to be true
   end
+
+  it 'validates make_last' do
+    expect(subject.make_last([4, 5, 6])).to be [0, 0, 0, 0, 0, 6]
+    expect(subject.make_last([1, 2])).to be [0, 0, 0, 2]
+    expect(subject.make_last([3])).to be [0, 3]
+    expect(subject.make_last([0])).to be [0, 0]
+    expect(subject.make_last([7, 7, 7])).to be [0, 0, 0, 0, 0, 7]
+    expect(subject.make_last([3, 1, 4])).to be [0, 0, 0, 0, 0, 4]
+    expect(subject.make_last([1, 2, 3, 4])).to be [0, 0, 0, 0, 0, 0, 0, 4]
+    expect(subject.make_last([1, 2, 3, 0])).to be [0, 0, 0, 0, 0, 0, 0, 0]
+    expect(subject.make_last([2, 4])).to be [0, 0, 0, 4]
+  end
 end
