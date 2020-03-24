@@ -45,4 +45,38 @@ RSpec.describe CodingBatRuby::ArrayOne do
     expect(subject.max_triple([5, 1, 7, 3, 7, 8, 9])).to be 9
     expect(subject.max_triple([2, 2, 5, 1, 1])).to be 5
   end
+
+  it 'validates same_first_last' do
+    expect(subject.same_first_last([1, 2, 3])).to be false
+    expect(subject.same_first_last([1, 2, 3, 1])).to be true
+    expect(subject.same_first_last([1, 2, 1])).to be true
+    expect(subject.same_first_last([7])).to be true
+    expect(subject.same_first_last([])).to be false
+    expect(subject.same_first_last([1, 2, 3, 4, 5, 1])).to be true
+    expect(subject.same_first_last([1, 2, 3, 4, 5, 13])).to be false
+    expect(subject.same_first_last([13, 2, 3, 4, 5, 13])).to be true
+    expect(subject.same_first_last([7, 7])).to be true
+  end
+
+  it 'valudates unlucky_one' do
+    expect(subject.unlucky_one([1, 3, 4, 5])).to be true
+    expect(subject.unlucky_one([2, 1, 3, 4, 5])).to be true
+    expect(subject.unlucky_one([1, 1, 1])).to be false
+    expect(subject.unlucky_one([1, 3, 1])).to be true
+    expect(subject.unlucky_one([1, 1, 3])).to be true
+    expect(subject.unlucky_one([1, 2, 3])).to be false
+    expect(subject.unlucky_one([3, 3, 3])).to be false
+    expect(subject.unlucky_one([1, 3])).to be true
+    expect(subject.unlucky_one([1, 4])).to be false
+    expect(subject.unlucky_one([1])).to be false
+    expect(subject.unlucky_one([])).to be false
+    expect(subject.unlucky_one([1, 1, 1, 3, 1])).to be false
+    expect(subject.unlucky_one([1, 1, 3, 1, 1])).to be true
+    expect(subject.unlucky_one([1, 1, 1, 1, 3])).to be true
+    expect(subject.unlucky_one([1, 4, 1, 5])).to be false
+    expect(subject.unlucky_one([1, 1, 2, 3])).to be false
+    expect(subject.unlucky_one([2, 3, 2, 1])).to be false
+    expect(subject.unlucky_one([2, 3, 1, 3])).to be true
+    expect(subject.unlucky_one([1, 2, 3, 4, 1, 3])).to be true
+  end
 end

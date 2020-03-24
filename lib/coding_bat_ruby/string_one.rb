@@ -32,7 +32,7 @@ module CodingBatRuby
     def without_two(str)
       return str if str.length < 2
       return '' if str.length == 2
-      return str[2..] if str[0...2].eql? str[-2..]
+      return str[2..-1] if str[0...2].eql? str[-2..]
 
       str
     end
