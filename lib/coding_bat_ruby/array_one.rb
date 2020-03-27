@@ -71,24 +71,43 @@ module CodingBatRuby
     # Returns a Boolean
     def unlucky_one(nums)
       (nums[0] == 1 && nums[1] == 3) ||
-      (nums[1] == 1 && nums[2] == 3) ||
-      (nums[-2] == 1 && nums[-1] == 3)
+        (nums[1] == 1 && nums[2] == 3) ||
+        (nums[-2] == 1 && nums[-1] == 3)
     end
 
     # Given an int array, return a new array with double the length where
     # its last element is the same as the original array, and all the other
     # elements are 0. The original array will be length 1 or more.
     # Note: by default, a new int array contains all 0's.
-    # 
+    #
     # Examples
     #
-    # make_last([4, 5, 6]) → [0, 0, 0, 0, 0, 6]
-    # make_last([1, 2]) → [0, 0, 0, 2]
-    # make_last([3]) → [0, 3]
+    # make_last([4, 5, 6]) -> [0, 0, 0, 0, 0, 6]
+    # make_last([1, 2]) -> [0, 0, 0, 2]
+    # make_last([3]) -> [0, 3]
     #
     # Returns an Array of integers
     def make_last(nums)
-       
+      second_array = Array.new(nums.length * 2, 0)
+      second_array[-1] = nums[-1]
+      second_array
+    end
+
+    # Given an array of ints length 3, figure out which is larger, the first
+    # or last element in the array, and set all the other elements to be that
+    # value. Return the changed array.
+    #
+    # Examples
+    #
+    # make_end([1, 2, 3]) ->[3, 3, 3]
+    # make_end([11, 5, 9]) ->[11, 11, 11]
+    # make_end([2, 11, 3]) -> [3, 3, 3]
+    #
+    # Returns an Array
+    def make_end(nums)
+      largest = [nums[0], nums[-1]].max
+      nums.each_with_index { |_val, i| nums[i] = largest }
+      nums
     end
   end
 end

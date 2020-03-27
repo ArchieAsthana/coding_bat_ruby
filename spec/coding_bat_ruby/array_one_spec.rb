@@ -81,14 +81,25 @@ RSpec.describe CodingBatRuby::ArrayOne do
   end
 
   it 'validates make_last' do
-    expect(subject.make_last([4, 5, 6])).to be [0, 0, 0, 0, 0, 6]
-    expect(subject.make_last([1, 2])).to be [0, 0, 0, 2]
-    expect(subject.make_last([3])).to be [0, 3]
-    expect(subject.make_last([0])).to be [0, 0]
-    expect(subject.make_last([7, 7, 7])).to be [0, 0, 0, 0, 0, 7]
-    expect(subject.make_last([3, 1, 4])).to be [0, 0, 0, 0, 0, 4]
-    expect(subject.make_last([1, 2, 3, 4])).to be [0, 0, 0, 0, 0, 0, 0, 4]
-    expect(subject.make_last([1, 2, 3, 0])).to be [0, 0, 0, 0, 0, 0, 0, 0]
-    expect(subject.make_last([2, 4])).to be [0, 0, 0, 4]
+    expect(subject.make_last([4, 5, 6])).to eq [0, 0, 0, 0, 0, 6]
+    expect(subject.make_last([1, 2])).to eq [0, 0, 0, 2]
+    expect(subject.make_last([3])).to eq [0, 3]
+    expect(subject.make_last([0])).to eq [0, 0]
+    expect(subject.make_last([7, 7, 7])).to eq [0, 0, 0, 0, 0, 7]
+    expect(subject.make_last([3, 1, 4])).to eq [0, 0, 0, 0, 0, 4]
+    expect(subject.make_last([1, 2, 3, 4])).to eq [0, 0, 0, 0, 0, 0, 0, 4]
+    expect(subject.make_last([1, 2, 3, 0])).to eq [0, 0, 0, 0, 0, 0, 0, 0]
+    expect(subject.make_last([2, 4])).to eq [0, 0, 0, 4]
+  end
+
+  it 'validates has_23' do
+    expect(subject.make_end([1, 2, 3])).to eq [3, 3, 3]
+    expect(subject.make_end([11, 5, 9])).to eq [11, 11, 11]
+    expect(subject.make_end([2, 11, 3])).to eq [3, 3, 3]
+    expect(subject.make_end([11, 3, 3])).to eq [11, 11, 11]
+    expect(subject.make_end([3, 11, 11])).to eq [11, 11, 11]
+    expect(subject.make_end([2, 2, 2])).to eq [2, 2, 2]
+    expect(subject.make_end([2, 11, 2])).to eq [2, 2, 2]
+    expect(subject.make_end([0, 1, 1])).to eq [1, 1, 1]
   end
 end
