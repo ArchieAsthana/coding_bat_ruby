@@ -112,4 +112,17 @@ RSpec.describe CodingBatRuby::ArrayOne do
     expect(subject.bigger_two([1, 3], [2, 2])).to eq [1, 3]
     expect(subject.bigger_two([6, 7], [3, 1])).to eq [6, 7]
   end
+
+  it 'validates start_one' do
+    expect(subject.start_one([1, 2, 3], [1, 3])).to be 2
+    expect(subject.start_one([7, 2, 3], [1])).to be 1
+    expect(subject.start_one([1, 2], [])).to be 1
+    expect(subject.start_one([], [1, 2])).to be 1
+    expect(subject.start_one([7], [])).to be 0
+    expect(subject.start_one([7], [1])).to be 1
+    expect(subject.start_one([1], [1])).to be 2
+    expect(subject.start_one([7], [8])).to be 0
+    expect(subject.start_one([], [])).to be 0
+    expect(subject.start_one([1, 3], [1])).to be 2
+  end
 end

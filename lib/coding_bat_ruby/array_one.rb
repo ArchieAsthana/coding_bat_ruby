@@ -126,5 +126,22 @@ module CodingBatRuby
 
       arr_b
     end
+
+    # Start with 2 int arrays, a and b, of any length. Return how many of the
+    # arrays have 1 as their first element.
+    #
+    # Examples
+    #
+    # start_one([1, 2, 3], [1, 3]) -> 2
+    # start_one([7, 2, 3], [1]) -> 1
+    # start_one([1, 2], []) -> 1
+    #
+    # Returns an Array
+    def start_one(arr_a, arr_b)
+      return 2 if arr_a[0] == 1 && arr_b[0] == 1
+      return 1 if arr_a[0] == 1 || arr_b[0] == 1
+
+      0
+    end
   end
 end
