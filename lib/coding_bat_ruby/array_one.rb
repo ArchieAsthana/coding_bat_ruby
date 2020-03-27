@@ -109,5 +109,22 @@ module CodingBatRuby
       nums.each_with_index { |_val, i| nums[i] = largest }
       nums
     end
+
+    # Start with 2 int arrays, a and b, each length 2. Consider the sum of the
+    # values in each array. Return the array which has the largest sum.
+    # In event of a tie, return a.
+    #
+    # Examples
+    #
+    # bigger_two([1, 2], [3, 4]) -> [3, 4]
+    # bigger_two([3, 4], [1, 2]) -> [3, 4]
+    # bigger_two([1, 1], [1, 2]) -> [1, 2]
+    #
+    # Returns an Array of Integers
+    def bigger_two(arr_a, arr_b)
+      return arr_a if arr_a.sum >= arr_b.sum
+
+      arr_b
+    end
   end
 end
