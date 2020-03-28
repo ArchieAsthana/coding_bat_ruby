@@ -125,4 +125,42 @@ RSpec.describe CodingBatRuby::ArrayOne do
     expect(subject.start_one([], [])).to be 0
     expect(subject.start_one([1, 3], [1])).to be 2
   end
+
+  it 'validates sum_two' do
+    expect(subject.sum_two([1, 2, 3])).to be 3
+    expect(subject.sum_two([1, 1])).to be 2
+    expect(subject.sum_two([1, 1, 1, 1])).to be 2
+    expect(subject.sum_two([1, 2])).to be 3
+    expect(subject.sum_two([1])).to be 1
+    expect(subject.sum_two([])).to be 0
+    expect(subject.sum_two([4, 5, 9])).to be 9
+    expect(subject.sum_two([4])).to be 4
+  end
+
+  it 'validates double_twenty_three' do
+    expect(subject.double_twenty_three([2, 2])).to eq true
+    expect(subject.double_twenty_three([3, 3])).to eq true
+    expect(subject.double_twenty_three([2, 3])).to eq false
+    expect(subject.double_twenty_three([3, 2])).to eq false
+    expect(subject.double_twenty_three([4, 5])).to eq false
+    expect(subject.double_twenty_three([2])).to eq false
+    expect(subject.double_twenty_three([3])).to eq false
+    expect(subject.double_twenty_three([])).to eq false
+    expect(subject.double_twenty_three([3, 4])).to eq false
+  end
+
+  it 'validates sum_three' do
+    expect(subject.sum_three([1, 2, 3])).to be 6
+    expect(subject.sum_three([5, 11, 2])).to be 18
+    expect(subject.sum_three([7, 0, 0])).to be 7
+    expect(subject.sum_three([1, 2, 1])).to be 4
+    expect(subject.sum_three([1, 1, 1])).to be 3
+    expect(subject.sum_three([2, 7, 2])).to be 11
+  end
+
+  it 'validates mid_three' do
+    expect(subject.mid_three([1, 2, 3, 4, 5])).to eq [2, 3, 4]
+    expect(subject.mid_three([8, 6, 7, 5, 3, 0, 9])).to eq [7, 5, 3]
+    expect(subject.mid_three([1, 2, 3])).to eq [1, 2, 3]
+  end
 end

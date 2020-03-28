@@ -136,12 +136,73 @@ module CodingBatRuby
     # start_one([7, 2, 3], [1]) -> 1
     # start_one([1, 2], []) -> 1
     #
-    # Returns an Array
+    # Returns an Integer
     def start_one(arr_a, arr_b)
       return 2 if arr_a[0] == 1 && arr_b[0] == 1
       return 1 if arr_a[0] == 1 || arr_b[0] == 1
 
       0
+    end
+
+    # Given an array of ints, return the sum of the first 2 elements in the
+    # array. If the array length is less than 2, just sum up the elements
+    # that exist, returning 0 if the array is length 0.
+    #
+    # Examples
+    #
+    # sum_two([1, 2, 3]) -> 3
+    # sum_two([1, 1]) -> 2
+    # sum_two([1, 1, 1, 1]) -> 2
+    #
+    # Returns an Integer
+    def sum_two(nums)
+      return nums.sum if nums.length < 2
+
+      nums[0] + nums[1]
+    end
+
+    # Given an int array, return true if the array contains 2 twice, or 3 twice.
+    # The array will be length 0, 1, or 2.
+    #
+    # Examples
+    #
+    # double23([2, 2]) -> true
+    # double23([3, 3]) -> true
+    # double23([2, 3]) -> false
+    #
+    # Returns a Boolean
+    def double_twenty_three(nums)
+      (nums[0] == 2 && nums[1] == 2) ||
+        (nums[0] == 3 && nums[1] == 3)
+    end
+
+    # Given an array of ints length 3, return the sum of all the elements.
+    #
+    # Examples
+    #
+    # sum_three([1, 2, 3]) -> 6
+    # sum_three([5, 11, 2]) -> 18
+    # sum_three([7, 0, 0]) -> 7
+    #
+    # Returns an Integer
+    def sum_three(nums)
+      nums.sum
+    end
+
+    # Given an array of ints of odd length, return a new array length 3
+    # containing the elements from the middle of the array. The array length
+    # will be at least 3.
+    #
+    # Examples
+    #
+    # mid_three([1, 2, 3, 4, 5]) -> [2, 3, 4]
+    # mid_three([8, 6, 7, 5, 3, 0, 9]) -> [7, 5, 3]
+    # mid_three([1, 2, 3]) -> [1, 2, 3]
+    #
+    # Returns an Array
+    def mid_three(nums)
+      mid = nums.length / 2
+      [nums[mid - 1], nums[mid], nums[mid + 1]]
     end
   end
 end
