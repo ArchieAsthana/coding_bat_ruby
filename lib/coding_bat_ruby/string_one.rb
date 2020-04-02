@@ -32,7 +32,7 @@ module CodingBatRuby
     def without_two(str)
       return str if str.length < 2
       return '' if str.length == 2
-      return str[2..] if str[0...2].eql? str[-2..]
+      return str[2..-1] if str[0...2].eql? str[-2..]
 
       str
     end
@@ -262,6 +262,24 @@ module CodingBatRuby
       return str[0] + str[2..-1] if str[1] == 'x'
 
       str
+    end
+
+    # Given 2 strings, a and b, return a string of the form short+long+short,
+    # with the shorter string on the outside and the longer string on the
+    # inside. The strings will not be the same length, but they may be empty
+    # (length 0).
+    #
+    # Examples
+    #
+    # combo_string("Hello", "hi") -> "hiHellohi"
+    # combo_string("hi", "Hello") -> "hiHellohi"
+    # combo_string("aaa", "b") -> "baaab"
+    #
+    # Returns a String
+    def combo_string(str_a, str_b)
+      return str_a + str_b + str_a if str_a.length <= str_b.length
+
+      str_b + str_a + str_b
     end
   end
 end

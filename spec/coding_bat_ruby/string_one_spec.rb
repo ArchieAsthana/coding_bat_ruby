@@ -193,4 +193,18 @@ RSpec.describe CodingBatRuby::StringOne do
     expect(subject.without_x2('Hexllo')).to eq 'Hexllo'
     expect(subject.without_x2('xHxllo')).to eq 'Hxllo'
   end
+
+  it 'validates combo_string' do
+    expect(subject.combo_string('Hello', 'hi')). to eq 'hiHellohi'
+    expect(subject.combo_string('hi', 'Hello')). to eq 'hiHellohi'
+    expect(subject.combo_string('aaa', 'b')). to eq 'baaab'
+    expect(subject.combo_string('b', 'aaa')). to eq 'baaab'
+    expect(subject.combo_string('aaa', '')). to eq 'aaa'
+    expect(subject.combo_string('', 'bb')). to eq 'bb'
+    expect(subject.combo_string('aaa', '1234')). to eq 'aaa1234aaa'
+    expect(subject.combo_string('aaa', 'bb')). to eq 'bbaaabb'
+    expect(subject.combo_string('a', 'bb')). to eq 'abba'
+    expect(subject.combo_string('bb', 'a')). to eq 'abba'
+    expect(subject.combo_string('xyz', 'ab')). to eq 'abxyzab'
+  end
 end
